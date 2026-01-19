@@ -1,0 +1,38 @@
+.hex-spinner-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.hex-spinner {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.hex-line {
+  position: absolute;
+  width: 6px;
+  height: 20px;
+  background: linear-gradient(180deg,#7ec7ff,#9f5dff);
+  border-radius: 4px;
+  top: 0;
+  left: 50%;
+  transform-origin: center 28px;
+  animation: hex-spin 1s linear infinite;
+  box-shadow: 0 0 12px rgba(140,120,255,0.4);
+}
+
+.hex-line:nth-child(1) { transform: translateX(-50%) rotate(0deg); }
+.hex-line:nth-child(2) { transform: translateX(-50%) rotate(60deg); }
+.hex-line:nth-child(3) { transform: translateX(-50%) rotate(120deg); }
+.hex-line:nth-child(4) { transform: translateX(-50%) rotate(180deg); }
+.hex-line:nth-child(5) { transform: translateX(-50%) rotate(240deg); }
+.hex-line:nth-child(6) { transform: translateX(-50%) rotate(300deg); }
+
+@keyframes hex-spin {
+  0% { opacity: 1; }
+  50% { opacity: 0.25; }
+  100% { opacity: 1; }
+}

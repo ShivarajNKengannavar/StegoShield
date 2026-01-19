@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "email": "test@example.com",
+            "password": "$2b$12$LL12RfPX6n1XjLaxl8GgCeAF8.6vFCTUHafpSRdlXayUN.oydXqMy",
+            "role": "user",
+            "reset_token": null
+        },
+        {
+            "email": "newuser@example.com",
+            "password": "$2b$12$hayqzpgYjB6HeJUDrhjd2O3iPkPM8tPkTGz93Pdz6aExISlI2iZ9a",
+            "role": "user",
+            "reset_token": null
+        },
+        {
+            "email": "ilyrustyn@gmail.com",
+            "password": "$2b$12$wBnDJoHV7/zkIRBqgJQu5.teC2sztu4KkGX7lg9i2KgNkGrIgS24G",
+            "role": "user",
+            "reset_token": "3b739f85"
+        }
+    ]
+}

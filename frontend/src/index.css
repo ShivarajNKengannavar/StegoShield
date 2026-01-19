@@ -1,0 +1,1450 @@
+/* ===========================================================
+   SecureStego — Enhanced Visual CSS (Safe Upgrade)
+   - ZERO class changes
+   - ZERO structural changes
+   - Pure visual upgrades only
+   =========================================================== */
+
+/* ---------- Variables ---------- */
+:root{
+  --bg-dark-1: #050309;
+  --bg-dark-2: #0c0712;
+
+  --accentA: #9f5dff;
+  --accentB: #cdb8ff;
+  --accentC: #7ec7ff;
+
+  --muted: #bfb7c8;
+
+  --card-bg: rgba(26,20,32,0.58);
+  --card-border: rgba(255,255,255,0.05);
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+
+  --glass-alpha: 0.56;
+}
+
+/* ---------- Base ---------- */
+*{box-sizing:border-box}
+html,body,#root{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;}
+body{
+  background: radial-gradient(160% 200% at 70% -20%, rgba(120,70,255,0.18), transparent),
+              radial-gradient(120% 200% at -20% 120%, rgba(40,120,255,0.15), transparent),
+              linear-gradient(180deg, var(--bg-dark-1), var(--bg-dark-2));
+  color: #f2f2f7;
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+
+/* ---------- Canvas ---------- */
+.acb-root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events:none;
+}
+.acb-canvas {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  opacity:0.95;
+}
+
+/* ---------- Dashboard ---------- */
+.app-root { position:relative; min-height:100vh; }
+.dashboard-frame{
+  position: relative;
+  z-index: 6;
+  width: calc(100% - 48px);
+  height: calc(100vh - 48px);
+  margin: 24px;
+
+  border-radius: 22px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 22px;
+  padding: 18px;
+
+  border: 1px solid rgba(255,255,255,0.03);
+  background: rgba(10,8,14,0.32);
+  backdrop-filter: blur(22px) saturate(115%);
+  box-shadow:
+    0 32px 80px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar{
+  /* ==========================================================
+   WOW SIDEBAR UPGRADE (Safe override, no class changes)
+   ========================================================== */
+
+/* Main sidebar container (glass blade effect + animated edge) */
+.sidebar {
+  position: relative;
+  background: rgba(20, 14, 32, 0.45);
+  backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 22px;
+  padding: 24px;
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    inset 0 0 40px rgba(160, 90, 255, 0.08);
+}
+
+/* Animated neon border strip */
+.sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(150, 80, 255, 0.7),
+    rgba(90, 210, 255, 0.6),
+    rgba(150, 80, 255, 0.8)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  animation: sidebar-border 6s linear infinite;
+}
+@keyframes sidebar-border {
+  0% { filter: hue-rotate(0deg); opacity: .7; }
+  50% { filter: hue-rotate(55deg); opacity: 1; }
+  100% { filter: hue-rotate(360deg); opacity: .7; }
+}
+
+/* Light glow behind sidebar (floating hologram style) */
+.sidebar::after {
+  content: "";
+  position: absolute;
+  top: -15%;
+  left: -20%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.06),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: -1;
+  animation: sidebar-glow 12s ease-in-out infinite;
+}
+@keyframes sidebar-glow {
+  0%   { transform: rotate(0deg) scale(1);   opacity: .4; }
+  50%  { transform: rotate(35deg) scale(1.1); opacity: .8; }
+  100% { transform: rotate(0deg) scale(1);   opacity: .4; }
+}
+
+/* Brand section improvement */
+.sidebar-thumb {
+  border-radius: 14px;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.6),
+    0 0 40px rgba(150, 80, 255, .35),
+    inset 0 0 12px rgba(255,255,255,.12);
+}
+
+/* Nav items — make them premium cyber UI */
+.nav-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: .4px;
+
+  transition: all .25s ease;
+}
+.nav-item:hover {
+  background: rgba(150,90,255,0.18);
+  box-shadow:
+    0 10px 30px rgba(150,90,255,0.26),
+    inset 0 0 14px rgba(255,255,255,0.14);
+  transform: translateX(6px);
+}
+.nav-item.active {
+  background: linear-gradient(
+    90deg,
+    rgba(150, 90, 255, 0.38),
+    rgba(90, 210, 255, 0.22)
+  );
+  border-color: rgba(150, 90, 255, 0.32);
+  color: #fff;
+
+  transform: translateX(10px);
+  box-shadow:
+    0 20px 40px rgba(150,90,255,0.32),
+    inset 0 0 20px rgba(255,255,255,0.22);
+}
+
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  padding:18px;
+  border-radius:14px;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(14px) saturate(140%);
+  border:1px solid rgba(255,255,255,0.04);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.55),
+    inset 0 0 22px rgba(159,93,255,0.05);
+}
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.sidebar-thumb{
+  width:56px; height:56px; border-radius:12px;
+  background-size:cover; background-position:center;
+  border:1px solid rgba(255,255,255,0.05);
+  box-shadow:0 12px 28px rgba(0,0,0,0.55),
+             0 0 22px rgba(159,93,255,0.12);
+}
+.title-sm{ font-weight:700; font-size:16px; color:#fff; }
+.subtitle-sm{ font-size:12px; color:var(--muted); margin-top:2px; }
+
+.sidebar-nav{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:6px;
+}
+.nav-item{
+  padding:10px 12px; border-radius:10px;
+  background:rgba(255,255,255,0.01);
+  border:1px solid rgba(255,255,255,0.03);
+  color:var(--muted);
+  cursor:pointer;
+  transition:all .22s ease;
+}
+.nav-item:hover{
+  background:rgba(159,93,255,0.08);
+  color:#fff;
+  transform:translateX(3px);
+}
+.nav-item.active{
+  background: linear-gradient(90deg, rgba(159,93,255,0.18), rgba(126,199,255,0.10));
+  color:#fff;
+  transform:translateX(5px);
+  box-shadow:0 8px 26px rgba(159,93,255,0.16);
+}
+
+/* ---------- Main ---------- */
+.main{
+  padding:0 6px 18px 6px;
+  overflow:auto;
+}
+
+/* ---------- Card ---------- */
+.card{
+  background: var(--card-bg);
+  border-radius:14px;
+  padding:14px;
+  border:1px solid var(--card-border);
+  position:relative;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.55),
+    inset 0 0 14px rgba(255,255,255,0.03);
+}
+.card--primary{
+  border-radius:16px;
+  padding:18px;
+}
+
+/* Glow on hover */
+.card::before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+
+  background:linear-gradient(90deg,
+      rgba(159,93,255,0.06),
+      rgba(126,199,255,0.05)
+  );
+  opacity:.22;
+  transition:.35s ease;
+}
+.card:hover::before{
+  opacity:.45;
+  transform:scale(1.015);
+}
+
+/* ---------- File Controls ---------- */
+.file-control{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  background:rgba(255,255,255,0.03);
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.04);
+
+  box-shadow:inset 0 0 12px rgba(255,255,255,0.02);
+}
+.file-btn{
+  padding:8px 14px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--accentA),var(--accentC));
+  font-weight:700;
+  cursor:pointer;
+  color:#0c0a14;
+  box-shadow:0 6px 18px rgba(120,80,255,0.25);
+}
+.file-btn:hover{
+  transform:translateY(-2px);
+}
+
+.fileinfo{
+  color:#e9e7ee;
+  font-size:13px;
+}
+.fileinfo.muted{
+  color:var(--muted);
+}
+
+/* Drag Zone */
+.dropzone{
+  border:2px dashed rgba(255,255,255,0.08);
+  padding:14px;
+  border-radius:10px;
+  margin-top:8px;
+  text-align:center;
+  color:var(--muted);
+  transition:border .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.dropzone.dragover{
+  background:rgba(159,93,255,0.12);
+  border-color:rgba(159,93,255,0.8);
+  box-shadow:0 12px 36px rgba(159,93,255,0.18);
+  color:#fff;
+}
+
+/* ---------- Outputs ---------- */
+.outputs-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:12px;
+}
+
+.thumb{
+  width:128px;
+  height:100px;
+  background:rgba(255,255,255,0.04);
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.05);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  cursor:pointer;
+  overflow:hidden;
+  padding:8px;
+
+  transition:transform .22s ease, box-shadow .22s ease;
+}
+.thumb:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.55),
+             0 0 18px rgba(159,93,255,0.25);
+}
+.thumb img{
+  max-width:100%;
+  max-height:64px;
+  object-fit:cover;
+  border-radius:6px;
+}
+.thumb .name{
+  margin-top:6px;
+  font-size:12px;
+  color:#eae6ff;
+  max-width:120px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  padding:10px 18px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--accentA),var(--accentC));
+  font-weight:700;
+  cursor:pointer;
+  border:0;
+  color:#fff;
+
+  transition:transform .22s ease, box-shadow .22s ease;
+  box-shadow:0 10px 26px rgba(120,80,255,0.2);
+}
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 36px rgba(120,80,255,0.25);
+}
+.btn.secondary{
+  background:rgba(255,255,255,0.06);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.12);
+}
+
+/* ---------- Logs ---------- */
+.logbox{
+  height:220px;
+  overflow:auto;
+  padding:12px;
+
+  background:rgba(0,0,0,0.5);
+  border-radius:10px;
+
+  font-family:var(--mono);
+  font-size:13px;
+  color:#dfe9ff;
+
+  box-shadow:inset 0 0 18px rgba(0,0,0,0.65);
+}
+
+/* ---------- Toast ---------- */
+.toast{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+
+  background:rgba(9,8,12,0.92);
+  padding:12px 14px;
+  border-radius:10px;
+  color:#fff;
+
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 14px 30px rgba(0,0,0,0.55);
+}
+
+/* Helpers */
+.small{ font-size:13px; color:var(--muted); }
+.muted{ color:var(--muted); }
+
+/* Responsive */
+@media(max-width:900px){
+  .dashboard-frame{ grid-template-columns:1fr; margin:12px; padding:10px; }
+  .sidebar{ order:1 }
+  .main{ order:2 }
+}
+
+.login-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: rgba(255,255,255,0.12);
+  padding: 28px;
+  width: 320px;
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 10;
+  text-align: center;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.2);
+  color: white;
+}
+
+.login-box .muted {
+  cursor: pointer;
+}
+
+/* AUTH PAGES */
+.auth-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.auth-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  padding: 28px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+  color: #fff;
+}
+
+.auth-box h2 {
+  margin-bottom: 6px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.auth-box .sub {
+  margin-bottom: 18px;
+  opacity: 0.7;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-box input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  outline: none;
+}
+
+.auth-btn {
+  margin-top: 8px;
+  padding: 10px;
+  background: linear-gradient(90deg, #9f5dff, #6acbff);
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.auth-btn:hover {
+  transform: translateY(-3px);
+}
+
+.auth-links {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.auth-links a {
+  color: #d0d0ff;
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================================================
+   PRO AUTH CARD — Premium Stealth UI
+   =========================================================== */
+.pro-auth-box {
+  width: 380px;
+  padding: 34px;
+  border-radius: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  background: rgba(20,16,32,0.55);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(22px) saturate(160%);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.75),
+    0 0 40px rgba(150,80,255,0.25);
+  z-index: 6;
+
+  animation: pro-auth-pop 0.6s ease forwards;
+}
+
+@keyframes pro-auth-pop {
+  from { opacity: 0; transform: translate(-50%, -52%) scale(0.92); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Glow animated border */
+.pro-auth-box::before {
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(150,80,255,0.7),
+    rgba(80,200,255,0.6),
+    rgba(150,80,255,0.7)
+  );
+  z-index: -1;
+  animation: auth-border-rotate 8s linear infinite;
+  -webkit-mask:
+     linear-gradient(#fff 0 0) content-box,
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+@keyframes auth-border-rotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Inputs */
+.pro-auth-box input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  margin-top: 8px;
+
+  transition: 0.2s ease;
+}
+
+.pro-auth-box input:focus {
+  border-color: #9f5dff;
+  box-shadow: 0 0 18px rgba(150,80,255,0.35);
+  background: rgba(255,255,255,0.12);
+}
+
+/* Buttons */
+.pro-auth-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+
+  background: linear-gradient(90deg,#9f5dff,#6acbff);
+  box-shadow: 0 14px 28px rgba(130,80,255,0.25);
+  color: #0c0a14;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.pro-auth-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(130,80,255,0.35);
+}
+
+/* Links */
+.pro-auth-links {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.pro-auth-links a {
+  color: #d0d0ff;
+  text-decoration: none;
+}
+
+.pro-auth-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(150,80,255,0.6);
+}
+
+/* ============================================================================
+   AUTH ENHANCEMENT — PREMIUM UPGRADE (Non-destructive)
+   ============================================================================
+*/
+
+/* Make auth-box larger and more premium */
+.auth-box {
+  width: 430px !important;
+  padding: 40px !important;
+  border-radius: 22px !important;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.7),
+    0 0 60px rgba(160,80,255,0.25),
+    inset 0 0 30px rgba(255,255,255,0.06) !important;
+
+  animation: authAppear 0.8s ease forwards;
+  transform-origin: center;
+}
+
+@keyframes authAppear {
+  0% { opacity: 0; transform: translateY(20px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Animated border glow */
+.auth-box::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: linear-gradient(
+    130deg,
+    rgba(150, 80, 255, 0.8),
+    rgba(80, 200, 255, 0.7),
+    rgba(150, 80, 255, 0.8)
+  );
+  z-index: -1;
+
+  animation: borderSpin 16s linear infinite;
+
+  -webkit-mask:
+     linear-gradient(#fff 0 0) content-box,
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+@keyframes borderSpin {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+/* Add breathing floating effect */
+.auth-box:hover {
+  transform: translateY(-6px) scale(1.02);
+  transition: 0.4s ease;
+}
+
+/* Background animation enhancement */
+.auth-container {
+  position: relative;
+}
+
+.auth-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(150, 80, 255, 0.18), transparent),
+    radial-gradient(circle at 70% 80%, rgba(80, 200, 255, 0.18), transparent);
+  animation: bgFloat 14s ease-in-out infinite alternate;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@keyframes bgFloat {
+  0%   { transform: scale(1) translateY(0); }
+  50%  { transform: scale(1.12) translateY(-18px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+/* Inputs glow upgrade */
+.auth-box input {
+  transition: 0.25s ease !important;
+  background: rgba(255,255,255,0.12) !important;
+}
+
+.auth-box input:focus {
+  border-color: #b276ff !important;
+  box-shadow:
+    0 0 14px rgba(160, 80, 255, 0.45),
+    0 0 30px rgba(100, 160, 255, 0.35);
+}
+
+/* Buttons enhanced */
+.auth-btn {
+  padding: 14px !important;
+  border-radius: 14px !important;
+  font-size: 16px !important;
+  background: linear-gradient(90deg,#ae74ff,#78d0ff) !important;
+  transition: 0.3s ease !important;
+
+  box-shadow:
+    0 14px 28px rgba(130,80,255,0.35),
+    0 0 20px rgba(110,130,255,0.2) !important;
+}
+
+.auth-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 18px 40px rgba(130,80,255,0.45),
+    0 0 30px rgba(120,160,255,0.3) !important;
+}
+
+/* Links glow */
+.auth-links a:hover {
+  color: #fff !important;
+  text-shadow: 0 0 12px rgba(160,80,255,0.8);
+}
+
+/* ===================== AUTH ADD-ONS ===================== */
+
+/* particles canvas lives behind auth card */
+.auth-particles { mix-blend-mode: screen; opacity: 0.95; }
+
+/* glass shine sweep */
+.auth-box {
+  position: relative; /* ensure pseudo elements align */
+  overflow: visible;
+}
+
+/* shine element */
+.auth-box::after {
+  content: "";
+  position: absolute;
+  left: -120%;
+  top: -20%;
+  width: 40%;
+  height: 140%;
+  transform: rotate(-18deg);
+  background: linear-gradient(120deg, rgba(255,255,255,0.03), rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+  filter: blur(18px);
+  opacity: 0;
+  pointer-events: none;
+  transition: none;
+}
+
+.auth-box:hover::after {
+  animation: shineMove 2s ease forwards;
+  opacity: 1;
+}
+
+@keyframes shineMove {
+  0% { left: -120%; opacity: 0; transform: rotate(-18deg) translateX(0) scale(0.9); }
+  30% { opacity: 0.8; }
+  100% { left: 180%; opacity: 0; transform: rotate(-18deg) translateX(0) scale(1.1); }
+}
+
+/* toast styles */
+.toast {
+  position: fixed;
+  right: 22px;
+  top: 22px;
+  min-width: 220px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  z-index: 9999;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: transform .18s ease, opacity .18s ease;
+}
+.toast-info { background: rgba(20,20,40,0.95); }
+.toast-success { background: linear-gradient(90deg,#5ff0b0,#4ba3ff); color:#062; }
+.toast-error { background: linear-gradient(90deg,#ff7b7b,#ffb36b); color:#2b0707; }
+
+/* password eye */
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+}
+.input-eye:hover { background: rgba(255,255,255,0.12); }
+
+/* password strength */
+.pw-strength {
+  height: 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+  margin-top: 6px;
+}
+.pw-strength > i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  transition: width .32s ease, background .32s ease;
+}
+.pw-weak { background: linear-gradient(90deg,#ff6b6b,#ff9a6b); }
+.pw-medium { background: linear-gradient(90deg,#ffd36b,#ffd36b); }
+.pw-strong { background: linear-gradient(90deg,#7cf08f,#4ba3ff); }
+
+/* small helper text under inputs */
+.helper-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  font-size:12px;
+  color: rgba(255,255,255,0.74);
+  margin-top:6px;
+}
+
+/* responsive - scale down card a little on small screens */
+@media (max-width: 520px) {
+  .auth-box, .pro-auth-box { width: calc(100% - 40px) !important; left: 50% !important; transform: translate(-50%, -50%) !important; padding: 20px !important; }
+}
+
+/* Ensures modal ALWAYS stays centered and above entire dashboard */
+.logout-modal-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 99999 !important;
+  backdrop-filter: blur(6px) brightness(0.7);
+}
+
+/* ===========================================================
+   AUTH BACKGROUND — Ambient Blobs (Option B)
+   =========================================================== */
+
+.auth-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remove old shine / particles / background animations */
+.auth-container::after {
+  content: none !important;
+}
+
+/* Ambient Blobs (clean, minimal, soft) */
+.auth-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.auth-ambient .blob {
+  position: absolute;
+  width: 560px;
+  height: 420px;
+  filter: blur(72px);
+  opacity: 0.22;
+  transform: translate3d(0,0,0);
+  mix-blend-mode: screen;
+}
+
+/* Blob colors */
+.auth-ambient .blob.a {
+  left: -15%;
+  top: -10%;
+  background: radial-gradient(circle at 30% 30%, rgba(159,93,255,0.98), rgba(159,93,255,0.15));
+}
+.auth-ambient .blob.b {
+  right: -18%;
+  bottom: -8%;
+  background: radial-gradient(circle at 70% 60%, rgba(106,203,255,0.95), rgba(106,203,255,0.12));
+}
+.auth-ambient .blob.c {
+  left: 18%;
+  bottom: -4%;
+  width: 420px;
+  height: 360px;
+  background: radial-gradient(circle at 40% 40%, rgba(120,80,255,0.6), rgba(70,130,255,0.08));
+}
+
+/* Blob floating animation */
+@keyframes blobFloat {
+  0% { transform: translateY(0) scale(1) rotate(0deg); opacity: .9; }
+  50% { transform: translateY(-18px) scale(1.05) rotate(2deg); opacity: 1; }
+  100% { transform: translateY(0) scale(1) rotate(0deg); opacity: .9; }
+}
+
+.auth-ambient .blob {
+  animation: blobFloat 14s ease-in-out infinite;
+}
+
+/* ===========================================================
+   AUTH CARD (All your original pro-auth-box remains unchanged)
+   =========================================================== */
+
+/* Keep your existing .pro-auth-box, .auth-box, inputs, buttons, links etc. */
+/* DO NOT MODIFY ANYTHING ABOVE — only background was replaced */
+
+/* ---------- Crystal Login (original) ---------- */
+.crystal-login-root { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #f2f2f7; }
+
+/* background blobs */
+.crystal-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(1200px 600px at 10% 85%, rgba(112,64,200,0.12), transparent), radial-gradient(900px 500px at 85% 20%, rgba(66,150,255,0.10), transparent), linear-gradient(180deg,#0b0520 0%, #130a20 60%, #090312 100%); }
+.crystal-bg .blob { position: absolute; border-radius: 50%; filter: blur(110px); opacity: 0.55; transform: translateZ(0); }
+.crystal-bg .blob.large { width: 680px; height: 680px; left: -6%; top: -12%; background: radial-gradient(circle at 30% 30%, rgba(159,93,255,0.95), rgba(159,93,255,0.08)); animation: floatSlow 10s ease-in-out infinite; }
+.crystal-bg .blob.left { width: 480px; height: 480px; left: 6%; bottom: -18%; background: radial-gradient(circle at 60% 60%, rgba(120,80,255,0.82), rgba(120,80,255,0.04)); animation: floatSlow 12s ease-in-out infinite; }
+.crystal-bg .blob.right { width: 540px; height: 540px; right: -10%; bottom: -4%; background: radial-gradient(circle at 60% 40%, rgba(70,150,255,0.85), rgba(70,150,255,0.05)); animation: floatSlow 14s ease-in-out infinite; }
+@keyframes floatSlow { 0% { transform: translateY(0) } 50% { transform: translateY(-20px) } 100% { transform: translateY(0) } }
+
+/* floating crystals (pure CSS shapes with small rotation/translate) */
+.crystal-bg .crystals { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.crystal { position: absolute; width: 120px; height: 120px; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); border-radius: 8px; transform: skew(-8deg) rotate(12deg); filter: drop-shadow(0 12px 30px rgba(0,0,0,0.6)); mix-blend-mode: screen; opacity: 0.95; }
+.crystal.c1 { left: 6%; top: 16%; width: 160px; height: 120px; transform: rotate(18deg) skew(-12deg); background: linear-gradient(180deg, rgba(255,230,210,0.15), rgba(120,80,255,0.14)); animation: crystalFloatA 6.6s ease-in-out infinite; }
+.crystal.c2 { right: 8%; top: 8%; width: 140px; height: 90px; transform: rotate(-18deg) skew(6deg); background: linear-gradient(180deg, rgba(160,220,255,0.12), rgba(80,140,255,0.08)); animation: crystalFloatB 8.0s ease-in-out infinite; }
+.crystal.c3 { right: 14%; bottom: 8%; width: 180px; height: 140px; transform: rotate(6deg) skew(-8deg); background: linear-gradient(180deg, rgba(255,200,220,0.12), rgba(160,80,255,0.08)); animation: crystalFloatC 7.2s ease-in-out infinite; }
+.crystal.c4 { left: 14%; bottom: 6%; width: 140px; height: 120px; transform: rotate(-6deg) skew(10deg); background: linear-gradient(180deg, rgba(120,220,255,0.12), rgba(60,120,255,0.06)); animation: crystalFloatB 9.2s ease-in-out infinite; }
+
+@keyframes crystalFloatA { 0% { transform: translateY(0) rotate(18deg) } 50% { transform: translateY(-18px) rotate(16deg) } 100% { transform: translateY(0) rotate(18deg) } }
+@keyframes crystalFloatB { 0% { transform: translateY(0) rotate(-12deg) } 50% { transform: translateY(-12px) rotate(-10deg) } 100% { transform: translateY(0) rotate(-12deg) } }
+@keyframes crystalFloatC { 0% { transform: translateY(0) rotate(6deg) } 50% { transform: translateY(-22px) rotate(8deg) } 100% { transform: translateY(0) rotate(6deg) } }
+
+/* center glass container */
+.glass-wrap { position: relative; z-index: 4; display: flex; align-items: center; justify-content: center; width: 100%; padding: 48px 28px; pointer-events: auto; }
+.glass-card {
+  width: 420px;
+  max-width: calc(100% - 56px);
+  padding: 30px 28px 22px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(20,18,32,0.68), rgba(18,14,28,0.50));
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px) saturate(120%);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+  text-align: center;
+  position: relative;
+}
+
+/* neon rim subtle */
+.glass-card::before {
+  content: "";
+  position: absolute; inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(159,93,255,0.16), rgba(80,180,255,0.12));
+  -webkit-mask: linear-gradient(#fff 0 0);
+  mix-blend-mode: screen;
+  opacity: 0.8;
+  pointer-events: none;
+  filter: blur(10px);
+}
+
+/* title */
+.glass-title { margin: 6px 0 2px; font-size: 20px; font-weight: 800; color: #fff; letter-spacing: .2px; }
+.glass-sub { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+
+/* form */
+.glass-form { display: flex; flex-direction: column; gap: 10px; align-items: stretch; margin-top: 4px; }
+.glass-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+  outline: none;
+  transition: box-shadow .18s ease, border-color .18s ease, transform .12s ease;
+  font-size: 14px;
+}
+.glass-input:focus {
+  border-color: rgba(159,93,255,0.9);
+  box-shadow: 0 8px 26px rgba(159,93,255,0.08), 0 0 18px rgba(80,160,255,0.05);
+  transform: translateY(-1px);
+}
+
+/* password input wrapper and eye */
+.input-wrap { position: relative; display: block; }
+.eye-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.02);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease;
+}
+.eye-btn:hover { transform: translateY(-52%); background: rgba(255,255,255,0.04); }
+
+/* CTA */
+.glass-cta {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, rgba(159,93,255,1), rgba(84,188,255,1));
+  color: #0a0a0a;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 16px 36px rgba(80,138,255,0.12);
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+.glass-cta:hover { transform: translateY(-3px); box-shadow: 0 20px 46px rgba(80,138,255,0.18); }
+.glass-cta[disabled] { opacity: .7; cursor: default; transform: none; }
+
+/* links row */
+.glass-links { display:flex; justify-content:space-between; margin-top: 12px; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.8); }
+.link-light { color: rgba(220,220,255,0.9); text-decoration: none; opacity: .9; }
+.link-light:hover { text-decoration: underline; text-shadow: 0 0 12px rgba(120,80,255,0.12); }
+
+/* toast */
+.crystal-toast { position: fixed; right: 20px; top: 20px; z-index: 9999; padding: 10px 14px; border-radius: 10px; font-weight: 700; color: #081; background: linear-gradient(90deg,#dff8e6,#ade6ff); box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+.crystal-toast.err { background: linear-gradient(90deg,#ffd7d7,#ffc0a6); color: #200; }
+
+/* small helpers */
+.sr-only { position: absolute !important; clip: rect(1px,1px,1px,1px); padding:0;border:0;height:1px;width:1px; overflow:hidden; }
+
+/* responsive */
+@media (max-width: 560px) {
+  .glass-card { padding: 20px; width: calc(100% - 32px); border-radius: 12px; }
+  .crystal-bg .crystal { display:block; opacity: .8; transform: none; }
+}
+
+/* Three.js crystals container sits behind the auth card */
+.auth-container { position: relative; min-height: 100vh; overflow: hidden; }
+.auth-container > div[style] { /* the CrystalScene root div */
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ensure the 3D canvas is background */
+.pro-auth-box { position: relative; z-index: 6; }
+
+/* subtle overlay vignette to match reference */
+.auth-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(600px 420px at 8% 10%, rgba(159,93,255,0.14), transparent 8%),
+              radial-gradient(420px 360px at 88% 84%, rgba(106,203,255,0.10), transparent 8%);
+  z-index: 1;
+}
+
+/* make sure scene canvas is behind vignette but behind card */
+.auth-container canvas { position: absolute; inset: 0; z-index: 0; }
+
+/* keep existing pro-auth-box look you already have */
+/* Strength bar and eye icon classes (should match your existing CSS) */
+.pw-strength { height: 8px; border-radius: 8px; background: rgba(255,255,255,0.04); overflow: hidden; margin-top: 8px; }
+.pw-strength > i { display: block; height: 100%; width: 0%; transition: width .28s ease, background .28s ease; }
+.pw-weak { background: linear-gradient(90deg,#ff6b6b,#ff9a6b); }
+.pw-medium { background: linear-gradient(90deg,#ffd36b,#ffd36b); }
+.pw-strong { background: linear-gradient(90deg,#7cf08f,#4ba3ff); }
+
+.input-wrap { position: relative; display: block; }
+.input-eye { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border-radius: 8px; cursor: pointer; }
+.input-eye:hover { background: rgba(255,255,255,0.08); }
+.toast { position: fixed; right: 20px; top: 20px; padding: 10px 14px; border-radius: 10px; z-index: 9999; color: #fff; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.45); }
+.toast-success { background: linear-gradient(90deg,#5ff0b0,#4ba3ff); color: #062; }
+.toast-error { background: linear-gradient(90deg,#ff7b7b,#ffb36b); color: #2b0707; }
+.toast-info { background: rgba(30,30,40,0.9); color: #fff; }
+
+/* === Particles wrapper sizing (keeps behind UI) === */
+.particles-bg canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* === White rim glow around the auth/login box === */
+.pro-auth-box {
+  /* keep existing rules but add a stronger crisp rim + soft outer glow */
+  box-shadow:
+    0 12px 30px rgba(255,255,255,0.06),  /* crisp rim */
+    0 30px 80px rgba(0,0,0,0.7),
+    0 0 48px rgba(160,140,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12); /* white-ish edge you wanted */
+  position: relative;
+  z-index: 30; /* ensure above particles */
+}
+
+/* Add a subtle inner glow line (thin white outline) */
+.pro-auth-box::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.04);
+  mix-blend-mode: screen;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+/* === Buttons glow (hover/focus) === */
+.btn, .pro-auth-btn {
+  transition: box-shadow .18s ease, transform .12s ease, filter .18s ease;
+  will-change: transform;
+}
+.btn:hover, .pro-auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 36px rgba(120,80,255,0.18),
+    0 0 28px rgba(120,180,255,0.08);
+  filter: saturate(1.05);
+}
+
+/* Neon rim for primary CTA (optional stronger effect) */
+.btn.primary-glow {
+  box-shadow: 0 10px 36px rgba(159,93,255,0.18), 0 0 28px rgba(90,210,255,0.07);
+}
+
+/* === Eye icon glow & hover uplift === */
+.input-eye {
+  transition: background .12s ease, transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  z-index: 40;
+}
+.input-eye:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(120,80,255,0.16), 0 0 18px rgba(159,93,255,0.06);
+  background: rgba(255,255,255,0.06);
+}
+
+/* small glowing icon accent (makes icons pop) */
+.input-eye svg { filter: drop-shadow(0 6px 18px rgba(159,93,255,0.12)); }
+
+/* Ensure the auth card sits above the particles and ambient blobs */
+.auth-ambient, .particles-bg { z-index: 0; }
+.pro-auth-box, .auth-box, .mascot-wrapper { z-index: 30; }
+
+/* If you want the rim to white-glow stronger on focus */
+.pro-auth-box:focus-within::after {
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.08);
+  filter: blur(8px);
+}
+
+/* small tweak for fullscreen look — dark pitch black behind everything */
+body, .auth-container {
+  background: #050203; /* pitch black base */
+}
+
+/* =====================================================
+   GALAXY PARTICLES & STREAK LINES
+   ===================================================== */
+
+.particles-galaxy {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1; /* behind login box */
+}
+
+/* Dust dots */
+.dust-dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: dustFloat 12s linear infinite;
+  opacity: 0.8;
+}
+
+/* Slow drifting motion */
+@keyframes dustFloat {
+  0% {
+    transform: translateY(0) translateX(0) scale(var(--scale, 1));
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px) scale(var(--scale, 1));
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(var(--scale, 1));
+  }
+}
+
+/* Milky-way white streak lines */
+.streak-line {
+  position: absolute;
+  width: 160px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0)
+  );
+  filter: blur(2px);
+  opacity: 0.9;
+  animation: streakMove 1.4s ease-out forwards;
+}
+
+/* Shooting star movement */
+@keyframes streakMove {
+  0% {
+    transform: translateX(0) scaleX(0.4);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(140vw) scaleX(1);
+    opacity: 0;
+  }
+}
+
+.dropzone.dragover {
+  border-color: white !important;
+  box-shadow: 0 0 22px rgba(255,255,255,0.75);
+  transform: scale(1.03);
+}
+
+.file-control:hover .file-btn {
+  box-shadow: 0 0 18px rgba(255,255,255,0.45);
+}
+
+/* Remove accidental floating preview box */
+.outputs-grid .thumb {
+  position: relative !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+
+.outputs-grid .thumb * {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+/* ----------------------
+   FIX: Outputs Grid Ghost Preview Bug
+----------------------- */
+
+.outputs-grid {
+  overflow: visible !important;
+}
+
+.outputs-grid .thumb {
+  background: rgba(255,255,255,0.02);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transform: none !important;
+}
+
+.outputs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 260px));
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.outputs-grid .thumb {
+  width: 260px;
+  background: rgba(255,255,255,0.04);
+  padding: 14px;
+  border-radius: 14px;
+}
+
+/* FIX output card overflow */
+.outputs-grid .thumb {
+  overflow: hidden;        /* prevents children from leaking out */
+  position: relative;      /* local stacking */
+  padding-bottom: 14px;    /* extra space for buttons */
+}
+
+/* FIX action buttons inside each card */
+.outputs-grid .thumb .btn,
+.outputs-grid .thumb a.btn {
+  margin-top: 0;           /* remove pushing-out margin */
+  z-index: 2;              /* stay above icon only */
+}
+
+.outputs-grid .thumb .name {
+  z-index: 2;
+  position: relative;
+}
+
+/* Make button row stay inside */
+.outputs-grid .thumb > div:last-of-type {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;         /* prevents overlap when width shrinks */
+  justify-content: center;
+}
+
+.outputs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.output-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.output-icon {
+  font-size: 42px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.output-name {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #eee;
+  word-break: break-word;
+}
+
+.output-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn {
+  background: linear-gradient(90deg, #8f5aff, #6bc8ff);
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.empty-note {
+  color: #bbb;
+  font-size: 14px;
+  margin-top: 20px;
+}
+

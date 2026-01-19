@@ -1,0 +1,239 @@
+/* src/styles/login.css
+   Option 1: blue + violet glow, centered glass card + dust particles
+*/
+
+.login-root {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg,#090615 0%, #0d0b19 60%, #0b0713 100%);
+  display: block;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #eaeaff;
+}
+
+/* Ambient radial blobs behind card */
+.login-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.login-ambient .blob {
+  position: absolute;
+  filter: blur(84px);
+  opacity: 0.95;
+  mix-blend-mode: screen;
+}
+.login-ambient .blob.left {
+  left: -8%;
+  top: 6%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle at 30% 30%, rgba(120,70,255,0.9), rgba(120,70,255,0.05));
+  transform: translateZ(0);
+}
+.login-ambient .blob.bottom {
+  left: 18%;
+  bottom: -6%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle at 30% 60%, rgba(70,110,255,0.85), rgba(70,110,255,0.03));
+}
+.login-ambient .blob.right {
+  right: -6%;
+  bottom: 8%;
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle at 60% 30%, rgba(95,60,255,0.86), rgba(95,60,255,0.02));
+}
+
+/* center container that ensures the card sits at center */
+.login-center {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  padding: 28px;
+}
+
+/* glass card (center) */
+.glass-card {
+  position: relative;
+  width: 420px;
+  max-width: calc(100% - 40px);
+  padding: 28px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(12px) saturate(120%);
+  text-align: center;
+  z-index: 10;
+  overflow: visible;
+}
+
+/* soft glow behind the card */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 120px);
+  height: calc(100% + 120px);
+  border-radius: 22px;
+  background: radial-gradient(circle at 35% 30%, rgba(110,80,255,0.11), rgba(60,120,255,0.06) 30%, transparent 50%);
+  filter: blur(36px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* brand icon (tiny circular top) */
+.brand-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(90deg,#7d4cff,#6ac6ff);
+  box-shadow: 0 10px 30px rgba(110,80,255,0.12), inset 0 0 8px rgba(255,255,255,0.06);
+}
+
+/* headings */
+.glass-card h1 {
+  margin: 4px 0 6px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+.muted { color: rgba(230,230,250,0.7); font-size: 13px; margin-bottom: 12px; }
+
+/* social row */
+.social-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+.social-btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+.social-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(50,60,120,0.18); }
+.social-btn .sicon { display:inline-block; width:18px; text-align:center; font-weight:900; }
+
+/* specific styles */
+.social-btn.apple { background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); }
+.social-btn.google { background: linear-gradient(90deg, rgba(100,80,255,0.06), rgba(80,200,255,0.06)); border:1px solid rgba(255,255,255,0.04); }
+
+/* small divider */
+.divider {
+  display:flex; align-items:center; justify-content:center; margin: 12px 0; color: rgba(220,220,255,0.5); font-size:13px;
+}
+
+/* fields */
+.field input {
+  width: 100%;
+  padding: 12px 44px 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+  outline: none;
+  transition: box-shadow .16s ease, border-color .16s ease;
+}
+.field + .field { margin-top: 10px; }
+
+/* input focus */
+.field input:focus {
+  border-color: rgba(120,80,255,0.9);
+  box-shadow: 0 8px 30px rgba(120,80,255,0.08);
+  transform: translateY(-1px);
+}
+
+/* eye button */
+.input-wrap { position: relative; display: block; }
+.eye-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.02);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* submit */
+.submit-btn {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  background: linear-gradient(90deg,#7d4cff,#6ac6ff);
+  color: #07101a;
+  box-shadow: 0 16px 36px rgba(80,80,140,0.2);
+}
+.submit-btn[disabled] { opacity: 0.8; transform: none; cursor: default; }
+
+/* links row */
+.links-row {
+  margin-top: 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+}
+.links-row a { color: rgba(230,230,255,0.7); text-decoration:none; }
+.links-row a:hover { text-decoration:underline; }
+
+/* login message */
+.login-msg { margin-top: 10px; font-weight:700; font-size:13px; }
+.login-msg.success { color: #9ff3d0; }
+.login-msg.error { color: #ffb0a0; }
+
+/* small responsive */
+@media (max-width: 520px) {
+  .glass-card { width: calc(100% - 32px); padding: 20px; }
+  .brand-icon { width:48px; height:48px; }
+}
+
+.toast-wrapper {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
