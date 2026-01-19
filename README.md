@@ -1,44 +1,46 @@
 # StegoShield
 
-![StegoShield Banner](images/banner.png)
-
-## 📸 Images & Screenshots
-
-All images and screenshots for this project should be placed in the `images/` folder at the root of the project directory.
-
-### **Required Images:**
-- `banner.png` - Project banner/header image (recommended: 1200x300px)
-- `screenshot.png` - Main application screenshot (recommended: 1200x800px)
-- `dashboard.png` - Dashboard interface screenshot (recommended: 1200x800px)
-- `process-flow.png` - Steganography process flow diagram (recommended: 800x600px)
-- `image-stego.png` - Image steganography interface screenshot (recommended: 1200x800px)
-- `video-stego.png` - Video steganography interface screenshot (recommended: 1200x800px)
-- `audio-stego.png` - Audio steganography interface screenshot (recommended: 1200x800px)
-- `text-stego.png` - Text steganography interface screenshot (recommended: 1200x800px)
-
-### **Available Images:**
-✅ `Homepage.png` - Main application homepage
-✅ `Login-page.png` - User authentication interface
-✅ `Tour.png` - Application tour/overview
-✅ `Encrypted-file.jpeg` - Example of encrypted file
-✅ `Stego-file.jpeg` - Steganography result file
-✅ `Recovered-file.jpeg` - Recovered/extracted file
-
-### **Available Videos:**
-✅ `Secure-Stego.webm` - Application demonstration video
-
-### **Image Guidelines:**
-- Use PNG format for best quality
-- Maintain consistent aspect ratios
-- Ensure text is readable in screenshots
-- Use high-resolution images for professional appearance
-- Consider using light theme for better visibility
+![StegoShield Homepage](images/Homepage.png)
 
 **StegoShield: Advanced Multi-Media Steganography Suite with AES-256 Encryption and RSA Security**
 
-![Application Homepage](images/Homepage.png)
+## 📸 Project Overview
 
-## 🌟 Features
+![Application Tour](images/Tour.png)
+
+StegoShield is a comprehensive steganography application that enables secure data concealment in images, videos, audio files, and text. Featuring AES-256 encryption, RSA-2048 key exchange, and JWT authentication, this tool provides military-grade security for hiding sensitive information.
+
+## 🔐 Authentication System
+
+![Login Interface](images/Login-page.png)
+
+Secure user authentication with:
+- JWT-based session management
+- Password-protected accounts
+- Role-based access control
+- Secure login/logout functionality
+
+## 🛡️ Steganography Features
+
+### **Image Steganography**
+![Steganography Result](images/Stego-file.jpeg)
+Hide secret data within image files using advanced LSB techniques with configurable bit depth.
+
+### **File Encryption**
+![Encrypted File Example](images/Encrypted-file.jpeg)
+Military-grade AES-256 encryption ensures your hidden data remains completely secure.
+
+### **Data Recovery**
+![Recovered File Example](images/Recovered-file.jpeg)
+Extract and recover hidden data with perfect integrity using RSA key authentication.
+
+## 🎥 Live Demonstration
+
+[![Watch Demo](videos/Secure-Stego.webm)](videos/Secure-Stego.webm)
+
+*Click the video above to see StegoShield in action*
+
+## 🌟 Key Features
 
 ### **Multi-Media Support**
 - **Image Steganography**: Hide data in JPEG, PNG, WebP, HEIC, and other image formats
@@ -64,9 +66,6 @@ All images and screenshots for this project should be placed in the `images/` fo
 - **Smooth Animations**: Framer Motion and GSAP for fluid UX
 - **3D Background**: Three.js powered particle effects
 - **Real-time Feedback**: Progress indicators and status updates
-
-![Dashboard Interface](images/Homepage.png)
-![Application Tour](images/Tour.png)
 
 ## 🏗️ Architecture
 
@@ -207,8 +206,6 @@ The frontend will run on `http://localhost:3000`
 
 ### **User Registration & Authentication**
 
-![Login Interface](images/Login-page.png)
-
 1. **Create an Account**
    - Navigate to `/signup`
    - Enter username, email, and password
@@ -227,7 +224,6 @@ The frontend will run on `http://localhost:3000`
 ### **Steganography Operations**
 
 #### **Image Steganography**
-![Steganography Process](images/Stego-file.jpeg)
 1. **Embedding Data**
    - Upload a cover image
    - Upload or enter secret data
@@ -241,7 +237,6 @@ The frontend will run on `http://localhost:3000`
    - Click "Extract" to retrieve hidden data
 
 #### **Video Steganography**
-![Video Steganography Demo](videos/Secure-Stego.webm)
 1. **Embedding Data**
    - Upload cover video
    - Upload secret data
@@ -255,7 +250,6 @@ The frontend will run on `http://localhost:3000`
    - Extract hidden payload
 
 #### **Audio Steganography**
-![Encrypted File Example](images/Encrypted-file.jpeg)
 1. **Embedding Data**
    - Upload cover audio file
    - Upload secret data
@@ -268,7 +262,6 @@ The frontend will run on `http://localhost:3000`
    - Retrieve hidden data
 
 #### **Text Steganography**
-![Recovered File Example](images/Recovered-file.jpeg)
 1. **Embedding Data**
    - Enter cover text
    - Upload secret data
